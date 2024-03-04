@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Meninas Super Poderosas Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.23.0/dist/phaser.js"></script>
+    <script src="scenes/welcome.js"></script>
+    <script src="scenes/comojogar.js"></script>
+    <script src="scenes/principal.js"></script>
+    <script src="scenes/gameover.js"></script>
+
+</head>
+
+<body>
+
+    <div id="game"></div>
+    <!--div que vai reinderizar o jogo -->
+
+    <script type="text/javascript">
+        //configurações iniciais do jogo
+        const config = {
+            type: Phaser.AUTO,
+            scale: {
+                mode: Phaser.Scale.FIT
+            },
+            autoCenter: Phaser.Scale.CENTER,
+            width: 1000, //largura da tela do jogo
+            height: 600, //altura da tela do jogo
+            backgroundColor: '#000',
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: {
+                        y: 500
+                    },
+                    debug: false
+                }
+            },
+            parent: "game",
+            dom: {
+                createContainer: true,
+            },
+            scene: [Welcome, ComoJogar, Principal, GameOver]
+        };
+
+        //declaração de variáveis
+        var game = new Phaser.Game(config);
+        var player;
+        var pontuacao;
+        var turbo;
+        var teclado;
+        var vilao;
+        var predio;
+        var estrela;
+        
+        game.scene.start('Welcome');
+    </script>
+
+</body>
+
+</html>
